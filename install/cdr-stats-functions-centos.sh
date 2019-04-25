@@ -512,17 +512,16 @@ func_nginx_supervisor(){
     #Install Supervisor
     pip install supervisor
 
-    cp /usr/src/cdr-stats/install/supervisor/centos/supervisord /etc/init.d/supervisord
-    chmod +x /etc/init.d/supervisord
-    chkconfig --levels 235 supervisord on
+    cp /usr/src/cdr-stats/install/supervisor/centos/supervisord /etc/init.d/supervisor
+    chmod +x /etc/init.d/supervisor
+    chkconfig --levels 235 supervisor on
     cp /usr/src/cdr-stats/install/supervisor/centos/supervisord.conf /etc/supervisord.conf
     mkdir -p /etc/supervisor/conf.d
-    cp /usr/src/cdr-stats/install/supervisor/gunicorn_cdrstats.conf /etc/supervisor/conf.d/
+    cp /usr/src/cdr-stats/install/supervisor/celery_cdrstats.conf /etc/supervisor/conf.d/
     mkdir /var/log/supervisor/
-
-    /etc/init.d/supervisord stop
+    /etc/init.d/supervisor stop
     sleep 2
-    /etc/init.d/supervisord start
+    /etc/init.d/supervisor start
 }
 
 #11、Configure Logs files and logrotate
