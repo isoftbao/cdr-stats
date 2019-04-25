@@ -10,7 +10,8 @@ http://blog.dscpl.com.au/2010/03/improved-wsgi-script-for-use-with.html
 import glob
 import os.path
 import sys
-
+# 设置当前目录为工作目录
+# 这一行是给 Apache 用的
 here = os.path.abspath(os.path.dirname(__file__))
 
 g = glob.glob(here + '/manage.py')

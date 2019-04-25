@@ -12,7 +12,7 @@ NUM_WORKERS=4
 # user/group to run as
 USER=cdr_stats
 GROUP=cdr_stats
-
+export PATH="/opt/miniconda/bin:$PATH"
 # cd /usr/share/virtualenvs/cdr-stats
 # source bin/activate
 # source /opt/miniconda/envs/cdr-stats/bin/activate /opt/miniconda/envs/cdr-stats
@@ -28,4 +28,4 @@ exec gunicorn cdr_stats.wsgi:application -b 127.0.0.1:8123 -w $NUM_WORKERS --tim
 
 
 
-# exec gunicorn cdr_stats.wsgi:application -b 127.0.0.1:8123 -w 1 --timeout=300 --user=cdr_stats --group=cdr_stats --log-level=debug --log-file=/var/log/cdr-stats/gunicorn_cdr_stats.log
+# exec gunicorn cdr_stats.wsgi:application -b 127.0.0.1:8123 -w 4 --timeout=300 --user=cdr_stats --group=cdr_stats --log-level=debug --log-file=/var/log/cdr-stats/gunicorn_cdr_stats.log
