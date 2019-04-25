@@ -16,7 +16,8 @@
 
 prog="supervisord"
 
-prefix="/usr/"
+# prefix="/usr"
+prefix="/opt/miniconda"
 exec_prefix="${prefix}"
 prog_bin="${exec_prefix}/bin/supervisord -c /etc/supervisord.conf"
 PIDFILE="/var/run/$prog.pid"
